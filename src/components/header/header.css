@@ -1,0 +1,54 @@
+.header__container {
+    height: 65vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} 
+
+.header__image_container {
+    
+    margin:0;
+}
+
+.crowgo {
+    transform: translateY(9.1vh) translateX(-8rem);
+
+    margin: 0;
+    height: 40vh;
+    width: auto;
+    filter: invert(0%) sepia(1%) saturate(5%) hue-rotate(206deg) brightness(107%) contrast(100%);
+}
+
+
+.header__text_container {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;   
+}
+
+.header__text {
+    
+    width: fit-content;
+    padding: 0.25em;
+    color: var(--bg-color-light);
+    background-color: var(--bg-color-dark);
+}
+
+.header__text-title {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.header__text-subtitle {
+    font-size: 3rem;
+}
+
+.header__text-button {
+    margin: 2rem 0 0 0;
+    font-size: 2rem;
+}
+
+
