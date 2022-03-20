@@ -1,53 +1,63 @@
 import { render } from '@testing-library/react';
-import React, { Component } from 'react';
-// import axios from 'axios';
+import {Tabs} from '../../components'
+import Navbar from '../../components'
+import Paper from '@material-ui/core/Paper';
+import banner from '../../assets/banner.jpg';
+import turtle from '../../assets/turtle.jpg';
+import facebook from '../../assets/facebook.png';
+import twitter from '../../assets/twitter.png';
+import {NavLink} from 'react-router-dom';
+import Crow from '../../assets/the_crow.svg';
+import React, { Component, useState } from 'react';
 import './profile.css';
 
 class Profile extends Component {
   state = {
     selectedFile: null
   }
-  fileSelectedHandler = (event) => { //this is a function
-    this.setState({
-      selectedFile: event.target.files[0]
-    })
-  }
-  fileUploadHandler = () => {
-    // axios.post('');
-  }
 
   render() {
     return (
-      <body className='profile' >
+      <body className='profile'>
         <div className='profile__header-bar'>
-          <img className='logo' alt="crowate"></img>
+          {/* <NavLink to='/home' className='profile__header-link'>
+            <a href='' className='header-link'>
+              <img className='logo' source={Crow} alt="Crowate"/>
+            </a>
+          </NavLink> */} {/*This doesn't work*/}
         </div>
         <header className='profile__header'>
-          <input type='file' onChange={this.fileSelectedHandler} />
-          <button onClick={this.fileUploadHandler}>Upload</button>
+          <img className='profile__header-image' src={banner} alt='user uploads image' />
         </header>
-        <section className='profile__content'>
-          <div className='profile__info'>
-            <img className='profile__picture' alt="profile picture"></img>
-            <h1 className='profile__name'>Julian Garcia-Hernandez</h1>
-            <h2 className='profile__occupation'>Computer Science Student</h2>
-            <p className='profile__bio'>
-              Julian is currently a student within CSCE 3444 wishing to complete his project.
-            </p>
-            <div className='profile__socials'>
-              <img className='profile__twitter' alt="redirects to user twitter page"></img>
-              <img className='profile__instagram' alt="redirects to user instagram page"></img>
+        <div className='profile__main'>
+          <section className='profile__content'>
+            <div className='profile__info'>
+              <div className='profile__frame'>
+                <img className='profile__picture' src={turtle} alt="profile picture"></img>
+              </div>
+              <div className='profile__info-text'>
+                <h3 id='profile__name'>Julian Garcia-Hernandez</h3>
+                <h4 id='profile__occupation'>Computer Science Student</h4>
+                <p className='profile__bio'>
+                  Julian is currently a student within CSCE 3444 wishing to complete his project.
+                </p>
+              </div>
+              <div className='profile__socials'>
+                <img className='profile__facebook' src={facebook} alt="redirects to user facebook page"></img>
+                <img className='profile__twitter' src={twitter} alt="redirects to user twitter page"></img>
+              </div>
             </div>
-          </div>
-          <div className='profile__gallery'>
-            <img className='profile__gallery-image' alt="highlights comments, likes, and commission information"></img>
-            <img className='profile__gallery-image' alt="highlights comments, likes, and commission information"></img>
-            <img className='profile__gallery-image' alt="highlights additional informaiton"></img>
-          </div>
-        </section>
-        <footer>
+          </section>
+          <section className='tab__explorer'>
+            <div className='tab__names'>
+              {/* <Tabs/> */}
+            </div>
+            <div className='tab__content'>
 
-        </footer>
+            </div>
+          </section>
+        </div>
+
       </body>
     );
   }

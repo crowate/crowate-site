@@ -1,6 +1,7 @@
 :root {
   --bg-color-light: #eee;
   --bg-color-dark: #000;
+  --bg-color-grey: #7A7A7A;
 
   
   background-color: var(--bg-color-light);
