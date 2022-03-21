@@ -1,12 +1,9 @@
 import './header.css'
 import logo from '../../assets/the_crow.svg' 
 import React from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
 import AuthenticationButton from '../auth0/AuthenticationButton'
 
 const Header = () => {
-
-    const { user } = useAuth0();
 
   return (
     <div className='header__container'>
