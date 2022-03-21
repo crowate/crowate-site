@@ -40,10 +40,6 @@
     width: 100%;
 }
 
-.profile__bio {
-    text-align: left;
-    margin-bottom: 0px;
-}
 .profile__frame {
     width: 100px; height: 100px;
     background-size: 100% 100%;
@@ -63,15 +59,21 @@
     display: flex;
     flex-direction: column;
     line-height: 18px;
-    inline-size: 350px;
 }
 
 #profile__name {
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 #profile__occupation {
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    margin-top: 0px;
     color: var(--bg-color-grey);
+}
+.profile__bio {
+    margin-top: 0px;
+    text-align: left;
+    margin-bottom: 0px;
 }
 
 .profile__socials img {
