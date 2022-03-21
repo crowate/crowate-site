@@ -1,0 +1,9 @@
+.navbar__container {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.navbar__link {
+    margin: 0px 10px;
+}

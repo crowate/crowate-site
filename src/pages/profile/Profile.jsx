@@ -1,13 +1,9 @@
 import { render } from '@testing-library/react';
-import {Tabs} from '../../components'
-import Navbar from '../../components'
-import Paper from '@material-ui/core/Paper';
+import {Navbar} from "../../components"
 import banner from '../../assets/banner.jpg';
 import turtle from '../../assets/turtle.jpg';
 import facebook from '../../assets/facebook.png';
 import twitter from '../../assets/twitter.png';
-import {NavLink} from 'react-router-dom';
-import Crow from '../../assets/the_crow.svg';
 import React, { Component, useState } from 'react';
 import './profile.css';
 
@@ -20,18 +16,11 @@ class Profile extends Component {
     return (
       <body className='profile'>
         <div className='profile__header-bar'>
-          {/* <NavLink to='/home' className='profile__header-link'>
-            <a href='' className='header-link'>
-              <img className='logo' source={Crow} alt="Crowate"/>
-            </a>
-          </NavLink> */} {/*This doesn't work*/}
+          <Navbar />
         </div>
         <header className='profile__header'>
           <img className='profile__header-image' src={banner} alt='user uploads image' />
-        </header>
-        <div className='profile__main'>
-          <section className='profile__content'>
-            <div className='profile__info'>
+          <div className='profile__info'>
               <div className='profile__frame'>
                 <img className='profile__picture' src={turtle} alt="profile picture"></img>
               </div>
@@ -47,15 +36,19 @@ class Profile extends Component {
                 <img className='profile__twitter' src={twitter} alt="redirects to user twitter page"></img>
               </div>
             </div>
-          </section>
-          <section className='tab__explorer'>
+        </header>
+        <div className='profile__main'>
+          <div className='profile__content'>
+            
+          </div>
+          <div className='tab__explorer'>
             <div className='tab__names'>
               {/* <Tabs/> */}
             </div>
             <div className='tab__content'>
 
             </div>
-          </section>
+          </div>
         </div>
 
       </body>

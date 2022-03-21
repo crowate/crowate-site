@@ -1,4 +1,3 @@
-import { Header, Footer } from './containers';
 import { Home, Login, Profile, Search, Landing, ErrorPage } from './pages';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
