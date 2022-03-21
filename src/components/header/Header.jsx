@@ -6,6 +6,7 @@ import AuthenticationButton from '../auth0/AuthenticationButton'
 
 const Header = () => {
 
+    const { user } = useAuth0();
 
   return (
     <div className='header__container'>
