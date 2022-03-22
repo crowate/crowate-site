@@ -7,7 +7,6 @@
     background-color: var(--bg-color-light);
     height: 50px;
     align-items: center;
-    justify-content: center;
 }
 
 .profile__header {
@@ -20,7 +19,6 @@
 
 
 .profile__main {
-    display: flex;
     background-color: var(--bg-color-light);
 }
 .profile__header-image {
@@ -62,6 +60,7 @@
 }
 
 #profile__name {
+    line-height: normal;
     margin-bottom: 0px;
     margin-top: 0px;
 }
@@ -71,13 +70,14 @@
     color: var(--bg-color-grey);
 }
 .profile__bio {
+    line-height: 35px;
     margin-top: 0px;
-    text-align: left;
+    text-align: center;
     margin-bottom: 0px;
 }
 
 .profile__socials img {
-    margin-top: 20px;
+    margin-top: 5px;
     width: 5%;
 }
 .tab__names {
