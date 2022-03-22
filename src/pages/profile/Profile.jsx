@@ -8,6 +8,7 @@ import React, { Component, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './profile.css';
+import { Button } from 'react-bootstrap';
 
 
 const Profile = () => {
@@ -24,7 +25,7 @@ const Profile = () => {
   }
 
   return (
-    <body className='profile'>
+    <div className='profile'>
       <div className='profile__header-bar'>
         <Navbar />
       </div>
@@ -52,8 +53,8 @@ const Profile = () => {
           <Gallery />
         </div>
       </div>
-
-    </body>
+      <Button onClick={handleLogout}>Logout</Button>
+    </div>
   );
 }
 
