@@ -26,9 +26,6 @@
     height: 200px;
     object-fit: cover;
 }
-.profile__content {
-    background-color: var(--bg-color-light);
-}
 
 .profile__info {
     text-align: center;
@@ -84,4 +81,7 @@
     display: flex;
     width: 50%;
     height: auto;
+}
+@media screen and (max-width: 1025px) {
+    background-color: var(--bg-color-light);
 }
