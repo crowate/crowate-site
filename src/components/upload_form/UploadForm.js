@@ -14,11 +14,11 @@ const UploadForm = () => {
     const { currUser } = useAuth() 
     const [selectedFile, setFile] = useState('')
 
-    const onFileChange = e => {
+    async function onFileChange(e){
         setFile(e.target.files[0])
     }
 
-    const onFileUpload = () => {
+     async function onFileUpload() {
         const formData = new FormData()
         console.log('uploading')
 
