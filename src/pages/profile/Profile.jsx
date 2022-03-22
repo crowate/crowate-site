@@ -13,14 +13,14 @@ import { Button } from 'react-bootstrap';
 
 const Profile = () => {
   const [error, setError] = useState('')
-  const {currentUser, logout} = useAuth()
+  const { currentUser, logout } = useAuth()
   const navigate = useNavigate()
 
   async function handleLogout() {
     setError('')
 
-    const {err} = await logout()
-    navigate("/login", {replace: true})
+    const { err } = await logout()
+    navigate("/login", { replace: true })
 
   }
 
@@ -42,16 +42,16 @@ const Profile = () => {
               Julian is currently a student within CSCE 3444 wishing to complete his project.
             </p>
           </div>
-          <div className='profile__socials'>
-            <img className='profile__facebook' src={facebook} alt="redirects to user facebook page"></img>
-            <img className='profile__twitter' src={twitter} alt="redirects to user twitter page"></img>
+        </div>
+        <div className='profile__main'>
+          <div className='profile__content'>
+            <div className='gallery__container'>
+              <Gallery />
+            </div>
           </div>
         </div>
       </header>
       <div className='profile__main'>
-        <div className='profile__content'>
-          <Gallery />
-        </div>
       </div>
       <Button onClick={handleLogout}>Logout</Button>
     </div>
