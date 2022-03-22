@@ -50,12 +50,6 @@ const Profile = () => {
           </div>
         </div>
       </header>
-      <div className='profile__main'>
-        <div className='profile__content'>
-          <Gallery />
-        </div>
-      </div>
-
     </body>
   );
 }
