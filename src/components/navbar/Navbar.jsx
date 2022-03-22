@@ -18,12 +18,12 @@ const Navbar = () => {
           <NavLink to="/contact-us" activeStyle>
             Contact Us
           </NavLink>
-          <NavLink to="/sign-up" activeStyle>
+          <NavLink to="/signup" activeStyle>
             Sign Up
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+          <NavBtnLink to='/login'>Log In</NavBtnLink>
         </NavBtn>
       </Nav >
     </>
