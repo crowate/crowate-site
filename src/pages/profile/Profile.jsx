@@ -39,7 +39,9 @@ class Profile extends Component {
         </header>
         <div className='profile__main'>
           <div className='profile__content'>
-            <Gallery />
+            <div className='gallery__container'>
+              <Gallery />
+            </div>
           </div>
         </div>
 
