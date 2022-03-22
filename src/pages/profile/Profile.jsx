@@ -9,6 +9,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './profile.css';
 
+
 const Profile = () => {
   const [error, setError] = useState('')
   const {currentUser, logout} = useAuth()
@@ -34,7 +35,7 @@ const Profile = () => {
             <img className='profile__picture' src={turtle} alt="profile picture"></img>
           </div>
           <div className='profile__info-text'>
-            <h3 id='profile__name'>Julian Garcia-Hernandez</h3>
+            <h3 id='profile__name'>{currentUser.user_metadata.username}</h3>
             <h4 id='profile__occupation'>Computer Science Student</h4>
             <p className='profile__bio'>
               Julian is currently a student within CSCE 3444 wishing to complete his project.
