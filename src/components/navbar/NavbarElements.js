@@ -9,7 +9,7 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 calc((100vw - 1000px) / 2);
+    padding: 0 0;
     /* z-index: 10; */
 `
 
@@ -43,6 +43,8 @@ export const NavMenu = styled.div`
     display: flex;
     align-items: center;
     margin-right: -24px;
+
+    margin-right: 24px;
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -68,6 +70,7 @@ export const NavBtnLink = styled(Link)`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    margin-left: 24px; 
 
     &:hover {
         transition: all 0.2s ease-in-out;
