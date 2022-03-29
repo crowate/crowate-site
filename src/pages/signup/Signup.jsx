@@ -27,7 +27,7 @@ const Signup = () => {
       setLoading(true)
       
       const {user, session, err} = await signup(userRef.current.value, emailRef.current.value, passRef.current.value)
-      navigate("/profile", {replace: true})
+      navigate(`/profile/${userRef.current.value}`, {replace: true})
       
       if (err) {
         throw(err)
