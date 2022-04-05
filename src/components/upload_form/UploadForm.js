@@ -1,73 +1,98 @@
-import React, { useState, } from 'react'
-import { Container, Card, Form, Alert } from 'react-bootstrap'
-import { useAuth } from '../../contexts/AuthContext'
-const axios = require('axios').default
+import { useEffect, useState } from "react";
+
+
+const fileTypes = ["JPG","PNG","JPEG"];
+const axios = require('axios').default;
 
 const ax_instance = axios.create({
-    baseURL: 'http://143.244.144.60:8000'
-})
-
-
-
-const UploadForm = () => {
-    const [error, setError] = useState()
-    const { currUser } = useAuth() 
-    const [selectedFile, setFile] = useState('')
-
-    async function onFileChange(e){
-        setFile(e.target.files[0])
-    }
-
-     async function onFileUpload() {
-        const formData = new FormData()
-        console.log('uploading')
-
-        formData.append(
-            "img-upload",
-            selectedFile,
-        )
-
-        ax_instance.post("/post_upload", formData)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+    baseURL: 'http://localhost:8000',
+});
 
 
 
 
-    return (
-        <Container
-            className='d-flex align-items-center justify-content-center'
-            style={{minHeight: "100vh"}}
-        >
-            <div className='w-100' style={{maxWidth: "800px"}}>
-                <Card>
-                    <Card.Body>
-                        {error && <Alert variant="danger">{error}</Alert>}
-                        <h2 className='text-center mb-4'>Upload Image</h2>
-                        <form>
-                            <div className="text-input">
-                                <label htmlFor="name">File Name: </label>
-                                <input type ="text"></input>
-                            </div>
-                            <label htmlFor="img">Select Image: </label>
+
+function HookUpload() {
+    async function  fileUpload(file,fileName,desc,altText) {
+        const formData = new FormData();
+            formData.append(
+                "post-upload",
+                file
+            )
+            formData.append(
+                "UserID",
+                "e6acafb0-a8b1-11ec-b909-0242ac120002"
+            )
+            formData.append(
+                "PostName",
+                fileName
+            )
+            formData.append(
+                "Description",
+                desc
+            )
+            formData.append(
+                "altText",
+                altText
+            )
+            await ax_instance.post("/post_upload", formData)
+            .then(response => {
+            console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            return false;
         
-                            <input type ="file" accept="image/png, image/jpeg" onChange={onFileChange}></input> 
-                            <button onClick={onFileUpload}>Upload</button> 
-                        </form>
-                        <div className='w-100 text-center mt-3'>
-                            Some link here?
-                        </div>
-                    </Card.Body>
-                </Card>
+    }
 
-            </div>
-       </Container>
-  )
+    const [desc,setDesc] = useState("")
+    const [file,setFile] = useState(0)
+    const [name,setName] = useState("")
+    const [altText,setAltText] = useState("")
+    
+    
+
+    
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="top-text">
+            <h2 className='Header'>Upload Crowation </h2>
+            <h4> Upload image</h4>
+        </div>
+        <div className="file-upload-form">
+            <form>
+                
+                <div className="file-upload-section">
+                    <label htmlFor="file-upload">File Upload: </label>
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setFile(e.target.files[0])}/> !
+                </div>
+                <div className="all-file-text">
+                    <div >
+                        <label>File Name: </label>
+                        <input type="text" onChange={e => setName(e.target.value)}/>
+                    </div> 
+                    <div >
+                        <label>Description: </label>
+                        <input type="text" onChange={e => setDesc(e.target.value)}/>
+                    </div> 
+                    <div >
+                        <label>AltText: </label>
+                        <input type="text" onChange={e => setAltText(e.target.value)}/>
+                    </div>
+                    <div>
+                        <button type="button" onClick={e => fileUpload(file,name,desc,altText)}>submit</button>
+                    </div>
+                
+                </div>                
+            </form>
+        </div>
+        
+      </header>
+    </div>
+  );
 }
 
-export default UploadForm
+export default HookUpload;
