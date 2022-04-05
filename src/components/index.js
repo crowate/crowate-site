@@ -1,4 +1,3 @@
-export {default as About } from './profile/Profile';
-export {default as Home } from './home/Home';
-export {default as Navbar } from './navbar/Navbar';
-export {default as Header } from './header/Header';
+export { default as Navbar } from './navbar/Navbar';
+export { default as Gallery } from './gallery/Gallery';
+export { default as UploadForm } from './upload_form/UploadForm'
