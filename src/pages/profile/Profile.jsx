@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Navbar, Gallery, UploadForm } from "../../components"
+import { Navbar, Gallery, UploadForm, Modal } from "../../components"
 import banner from '../../assets/banner.jpg';
 import turtle from '../../assets/turtle.jpg';
 import facebook from '../../assets/facebook.png';
@@ -17,6 +17,7 @@ const Profile = () => {
   const navigate = useNavigate()
   const { username } = useParams();
   const [user, setUser] = useState('')
+  const [postModalDisplay, setPostModalDisplay] = useState(false)
 
   async function handleLogout() {
     const { err } = await logout()
@@ -52,7 +53,7 @@ const Profile = () => {
   return (
     <div className='profile'>
       <div className='profile__header-bar'>
-        <Navbar />
+        {/* <Navbar /> */}
       </div>
       <header className='profile__header'>
         <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploads image' />
@@ -77,7 +78,12 @@ const Profile = () => {
         </div>
       </header>
       <div className='profile__main'>
-        <UploadForm />
+        <button onClick={() => { setPostModalDisplay(!postModalDisplay) }}>Upload Post</button>
+        {postModalDisplay && 
+          <Modal open={postModalDisplay}>
+            <UploadForm />
+          </Modal>
+        }
       </div>
       <Button onClick={handleLogout}>Logout</Button>
     </div>
