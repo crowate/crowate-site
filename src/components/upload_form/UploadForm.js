@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useAuth } from "../../contexts/AuthContext";
 
 const fileTypes = ["JPG","PNG","JPEG"];
 const axios = require('axios').default;
@@ -11,8 +11,10 @@ const ax_instance = axios.create({
 
 
 
+const HookUpload = () => {
+    const { currentUser } = useAuth();
+    const { id, user_metadata } = currentUser;
 
-function HookUpload() {
     async function  fileUpload(file,fileName,desc,altText) {
         const formData = new FormData();
             formData.append(
@@ -21,7 +23,7 @@ function HookUpload() {
             )
             formData.append(
                 "UserID",
-                "e6acafb0-a8b1-11ec-b909-0242ac120002"
+                id
             )
             formData.append(
                 "PostName",
@@ -34,6 +36,10 @@ function HookUpload() {
             formData.append(
                 "altText",
                 altText
+            )
+            formData.append(
+                "UserName",
+                user_metadata.username
             )
             await ax_instance.post("/post_upload", formData)
             .then(response => {
@@ -50,10 +56,6 @@ function HookUpload() {
     const [file,setFile] = useState(0)
     const [name,setName] = useState("")
     const [altText,setAltText] = useState("")
-    
-    
-
-    
 
   return (
     <div className="App">

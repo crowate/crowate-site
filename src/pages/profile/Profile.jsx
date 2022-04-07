@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Navbar, Gallery } from "../../components"
+import { Navbar, Gallery, UploadForm } from "../../components"
 import banner from '../../assets/banner.jpg';
 import turtle from '../../assets/turtle.jpg';
 import facebook from '../../assets/facebook.png';
@@ -77,6 +77,7 @@ const Profile = () => {
         </div>
       </header>
       <div className='profile__main'>
+        <UploadForm />
       </div>
       <Button onClick={handleLogout}>Logout</Button>
     </div>
