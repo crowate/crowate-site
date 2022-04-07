@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Modal.css'
 
-const Modal = (props) => {
-  if (!props.open) return null
+const Modal = ({ children, toggle }) => {
+  useEffect(() => {
+    console.log("Render")
+  }, [])
 
   return (
       <>
-        <div className='modal-overlay'></div>
-        <div className='modal'>
-            <div className='modal-guts'>
-                <button >Close</button>
-                { props.children }
-            </div>
+        <div className='modal__container'>
+          <div className='modal__guts'>
+            <button onClick={toggle}> X </button>
+            {children}
+          </div>
         </div>
       </>
   )
