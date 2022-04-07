@@ -63,6 +63,8 @@ export const AuthProvider = ({ children }) => {
     resetPassword
   }
 
+  console.log(currentUser)
+
   return (
     <AuthContext.Provider value={ value } >
       {!loading && children}
