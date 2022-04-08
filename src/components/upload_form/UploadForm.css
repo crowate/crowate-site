@@ -34,25 +34,6 @@
     flex-direction: column;
 }
 
-label {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0.75rem 0 0.5rem 0;
-}
-
-button {
-    border: none;
-}
-
-input {
-    width: calc(100% - 10px);
-}
-
-input:focus {
-    border-width: 2px;
-    border-style: solid;
-}
-
 .form__item {
     display: flex;
     flex-direction: column;
@@ -60,6 +41,11 @@ input:focus {
 .align_center {
     align-items: center;
 }
+
+.form__item > button {
+    border: none;
+}
+
 .form__button {
     width: 200px;
     height: 50px;
@@ -70,3 +56,17 @@ input:focus {
     border-radius: 25px;
 }
 
+.form__item-input {
+    width: calc(100% - 10px);
+}
+
+.form__item-input:focus {
+    border-width: 2px;
+    border-style: solid;
+}
+
+.form__item-label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.75rem 0 0.5rem 0;
+}
