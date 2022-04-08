@@ -8,9 +8,9 @@ const Modal = ({ children, toggle }) => {
 
   return (
       <>
-        <div className='modal__container'>
+        <div className='modal__container .scale-in-center'>
           <div className='modal__guts'>
-            <button onClick={toggle}> X </button>
+            <button className="modal__close" onClick={toggle}>x</button>
             {children}
           </div>
         </div>

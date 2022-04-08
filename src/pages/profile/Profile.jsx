@@ -75,6 +75,9 @@ const Profile = () => {
             </p>
           </div>
         </div>
+        
+      </header>
+      <div className='profile__main'>
         <div className='profile__main'>
           <div className='profile__content'>
             <div className='gallery__container'>
@@ -88,10 +91,6 @@ const Profile = () => {
             <UploadForm></UploadForm>
           </Modal>
         } 
-      </header>
-      <div className='profile__main'>
-      
-
       </div>
       
       <Button onClick={handleLogout}>Logout</Button>
