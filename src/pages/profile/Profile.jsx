@@ -1,9 +1,5 @@
 import { render } from '@testing-library/react';
 import { Navbar, Gallery, UploadForm, Modal } from "../../components"
-import banner from '../../assets/banner.jpg';
-import turtle from '../../assets/turtle.jpg';
-import facebook from '../../assets/facebook.png';
-import twitter from '../../assets/twitter.png';
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -21,6 +17,9 @@ const Profile = () => {
 
   async function handleLogout() {
     const { err } = await logout()
+
+    if (err) console.error(err)
+
     navigate("/login", { replace: true })
   }
 
@@ -46,14 +45,21 @@ const Profile = () => {
 
   }
 
+  function handleModalToggle() {
+    setPostModalDisplay(!postModalDisplay)
+  }
+
   useEffect(() => {
     getUserData(username)
+    return () => {
+      setPostModalDisplay(false)
+    }
   },[])
 
   return (
     <div className='profile'>
       <div className='profile__header-bar'>
-        {/* <Navbar /> */}
+        <Navbar />
       </div>
       <header className='profile__header'>
         <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploads image' />
@@ -69,6 +75,9 @@ const Profile = () => {
             </p>
           </div>
         </div>
+        
+      </header>
+      <div className='profile__main'>
         <div className='profile__main'>
           <div className='profile__content'>
             <div className='gallery__container'>
@@ -76,15 +85,14 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </header>
-      <div className='profile__main'>
-        <button onClick={() => { setPostModalDisplay(!postModalDisplay) }}>Upload Post</button>
-        {postModalDisplay && 
-          <Modal open={postModalDisplay}>
-            <UploadForm />
+        <button onClick={handleModalToggle}>Upload Post!</button>
+        {postModalDisplay &&
+          <Modal toggle={handleModalToggle} >
+            <UploadForm></UploadForm>
           </Modal>
-        }
+        } 
       </div>
+      
       <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
