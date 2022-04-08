@@ -1,0 +1,32 @@
+.preview-window{
+    min-width: 40vh;
+    display: inline-flex;
+    position: relative;
+    text-align: center;
+    border: 10px black solid;
+    color: transparent;
+    
+}
+
+.preview-img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.text{
+    position: absolute;
+    font-size: 10vmin;
+    top:8vmin;
+    left: 1vmin;
+}
+
+
+ .preview-window:hover{
+    color: white;
+    
+}  
+
+.preview-window:hover > img {
+    filter: brightness(50%);
+
+}
