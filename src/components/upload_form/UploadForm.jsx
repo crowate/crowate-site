@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import {  useState, } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import './UploadForm.css'
 
-const fileTypes = ["JPG","PNG","JPEG"];
 const axios = require('axios').default;
 
 const ax_instance = axios.create({
@@ -67,21 +66,30 @@ const HookUpload = () => {
             <div className="form__content-container">
                 <form className="form__content-file">
                     <div className="file-upload-section form__item">
-                        <label htmlFor="file-upload">File Upload </label>
+                        <label className="form__item-label" htmlFor="file-upload">File Upload </label>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setFile(e.target.files[0])}/>
                     </div>
                     <div className="all-file-text">
                         <div className="form__item">
-                            <label>Post Title </label>
-                            <input type="text" onChange={e => setName(e.target.value)} />
+                            <label className="form__item-label">Post Title </label>
+                            <input
+                                className="form__item-input"
+                                type="text" 
+                                onChange={e => setName(e.target.value)} 
+                            />
                         </div> 
                         <div className="form__item">
-                            <label>Description </label>
-                            <input type="text" onChange={e => setDesc(e.target.value)}/>
-                        </div> 
-                        <div className="form__item">
-                            <label>AltText </label>
+                            <label className="form__item-label">Description </label>
                             <input 
+                                className="form__item-input"
+                                type="text" 
+                                onChange={e => setDesc(e.target.value)}
+                            />
+                        </div> 
+                        <div className="form__item">
+                            <label className="form__item-label">AltText </label>
+                            <input 
+                                className="form__item-input"
                                 type="text" 
                                 onChange={e => setAltText(e.target.value)}
                             />

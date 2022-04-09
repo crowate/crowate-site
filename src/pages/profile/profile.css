@@ -1,5 +1,5 @@
 .profile {
-    background-color: var(--bg-color-dark);
+    background-color: var(--bg-color-light);
 }
 
 .profile__header-bar {
@@ -15,9 +15,13 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
+    align-items: center;
 }
 
-
+.profile__button {
+    border: none;
+    margin-bottom: 2rem;
+}
 
 .profile__main {
     background-color: var(--bg-color-light);
