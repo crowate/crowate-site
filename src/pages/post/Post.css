@@ -1,0 +1,37 @@
+.post-body{
+    display: flex;
+    height: 100vh;
+}
+
+.post-data{
+    width: 80%;
+    height: 100%;
+}
+
+
+.img-container{
+    display: flex;
+    background-color: rgb(87, 87, 87);
+    justify-content: center
+}
+.post-img{
+    height: 35vmax;
+    padding: 1% 0%;
+}
+
+.r-feed{
+    width: 20%;
+    text-align: center;
+}
+
+.post-display{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    max-height: 95%;
+    
+}
+
+.post-desc{
+    padding-left: 3vw;
+}

@@ -2,6 +2,7 @@ import './Home.css'
 
 import logo from '../../assets/the_crow.svg'
 import PostPreview from '../../components/PostPreview/PostPreview'
+import Navbar from '../../components/navbar/Navbar'
 import { useState, useEffect } from 'react';
 
 const axios = require('axios').default;
@@ -39,8 +40,6 @@ function Home() {
             })
         )
 
-
-       // return <PostPreview key={id} {...photo}/>
     }
 
 
