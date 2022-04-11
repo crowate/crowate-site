@@ -13,7 +13,7 @@ const Profile = () => {
 
   const navigate = useNavigate()
   const { username } = useParams();
-  
+
   const [user, setUser] = useState('')
   const [postModalDisplay, setPostModalDisplay] = useState(false)
   const [profileModalDisplay, setProfileModalDisplay] = useState(false)
@@ -38,42 +38,40 @@ const Profile = () => {
   function handleSettingsToggle() {
     setProfileModalDisplay(!profileModalDisplay)
   }
-  
+
   useEffect(() => {
     async function getUserData(usr) {
-    try {
-      const { data, error } =  await supabase
-      .from('Profile Data')
-      .select('*')
-      .eq('Username', usr)
-      
-      if (error) {
-        throw(error)
-      } 
-      
-      setUser(data)
-      console.log(data)
-      console.log(user)
+      try {
+        const { data, error } = await supabase
+          .from('Profile Data')
+          .select('*')
+          .eq('Username', usr)
 
-    } catch (e) {
-      console.log(e)
+        if (error) {
+          throw (error)
+        }
+
+        setUser(data)
+        console.log(data)
+        console.log(user)
+
+      } catch (e) {
+        console.log(e)
+      }
+
     }
 
-  }
-  
 
     getUserData(username)
     return () => {
       setPostModalDisplay(false)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[username])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [username])
 
   return (
     <div className='profile'>
-      <div className='profile__header-bar'>
-        <Navbar />
-      </div>
+      <Navbar />
       <header className='profile__header'>
         <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
         <div className='profile__info'>
@@ -95,7 +93,7 @@ const Profile = () => {
           </Modal>
         }
       </header>
-      
+
       <div className='profile__main'>
         <div className='profile__main'>
           <div className='profile__content'>
@@ -109,9 +107,9 @@ const Profile = () => {
           <Modal toggle={handleModalToggle} >
             <UploadForm></UploadForm>
           </Modal>
-        } 
+        }
       </div>
-      
+
       <Button onClick={handleLogout}>Logout</Button>
     </div>
   );
