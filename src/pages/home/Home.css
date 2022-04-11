@@ -14,6 +14,7 @@
 
 .post-display{
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     /* justify-content: flex-start; */
     gap: 10px;

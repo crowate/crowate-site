@@ -50,7 +50,7 @@ const Post = () => {
                 </div>
                 <div className="r-feed">
                     <h2>Recent Posts</h2>
-                    <div className="post-display">
+                    <div className=".r-display">
                         {newPost.map((post)=> {
                             return <PostPreview className="img-preview" key={post.Post_ID} {...post}/>
                         })}
