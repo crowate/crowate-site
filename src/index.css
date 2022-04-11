@@ -2,7 +2,8 @@
   --bg-color-light: #FAFAFA;
   --bg-color-dark: #000;
   --bg-color-grey: #7A7A7A;
-  --bg-color-blue: #152238;
+  --bg-color-blue-800: #152238;
+  --blue-500: #3E49CC;
   
   background-color: var(--bg-color-light);
 }
