@@ -26,15 +26,15 @@ const Profile = () => {
 
   async function getUserData(usr) {
     try {
-      const { data, error } =  await supabase
-      .from('Profile Data')
-      .select('*')
-      .eq('Username', usr)
-      
+      const { data, error } = await supabase
+        .from('Profile Data')
+        .select('*')
+        .eq('Username', usr)
+
       if (error) {
-        throw(error)
-      } 
-      
+        throw (error)
+      }
+
       setUser(data)
       console.log(data)
       console.log(user)
@@ -47,13 +47,11 @@ const Profile = () => {
 
   useEffect(() => {
     getUserData(username)
-  },[])
+  }, [])
 
   return (
     <div className='profile'>
-      <div className='profile__header-bar'>
-        <Navbar />
-      </div>
+      <Navbar />
       <header className='profile__header'>
         <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploads image' />
         <div className='profile__info'>
