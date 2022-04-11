@@ -1,0 +1,51 @@
+.navbar2 {
+    width: 90vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    color: var(--bg-color-light);
+    margin: 0 auto;
+    padding: 0;
+    background-color: black;
+    /*this sets the background transparent so it inherits parent color*/
+}
+
+.logo {
+    box-sizing: border-box;
+    width: 30%;
+    max-width: 60px;
+    filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(257deg) brightness(107%) contrast(101%);
+}
+
+
+.searchbar {
+    display: flex;
+    align-items: center;
+}
+
+.navlinks {
+    display: flex;
+    justify-content: right;
+}
+
+.navlinks ul {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+.link .active {
+    color: blue;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
