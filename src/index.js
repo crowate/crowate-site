@@ -9,7 +9,7 @@ import Post from './pages/post/Post'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home/>
+    <App />
   </React.StrictMode>,   
   document.getElementById('root')
 );
