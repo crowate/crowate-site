@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Crow from '../../assets/the_crow-light.svg';
+import logo from '../../assets/the_crow.svg'
 import { useAuth } from '../../contexts/AuthContext';
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
 import Searchbar from '../searchbar/Searchbar';
@@ -9,7 +9,7 @@ import './navbar.css'
 
 const Navbar = () => {
   const navigate = useNavigate()
-  const { currentUser, logout } = useAuth()
+  const { currentUser, logout } = useAuth();
 
   async function handleLogout() {
     const { err } = await logout()
@@ -18,8 +18,9 @@ const Navbar = () => {
 
   return (
     <div className='navbar2'>
-      <div className='logo'>
-        Logo goes here
+      <div className='logo-container'>
+        <img src={logo} alt="" className="logo" />
+
       </div>
       <div className='searchbar'>
         <Searchbar placeholder={"Search Username"} data={Data} />
