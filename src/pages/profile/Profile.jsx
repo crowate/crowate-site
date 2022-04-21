@@ -14,12 +14,9 @@ const Profile = () => {
   const navigate = useNavigate()
   const { username } = useParams();
 
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState()
   const [postModalDisplay, setPostModalDisplay] = useState(false)
   const [profileModalDisplay, setProfileModalDisplay] = useState(false)
-
-
-
 
   async function handleLogout() {
     const { err } = await logout()
@@ -28,8 +25,6 @@ const Profile = () => {
 
     navigate("/login", { replace: true })
   }
-
-
 
   function handleModalToggle() {
     setPostModalDisplay(!postModalDisplay)
@@ -50,10 +45,7 @@ const Profile = () => {
         if (error) {
           throw (error)
         }
-
         setUser(data)
-        console.log(data)
-        console.log(user)
 
       } catch (e) {
         console.log(e)
@@ -61,60 +53,56 @@ const Profile = () => {
 
     }
 
-
     getUserData(username)
     return () => {
       setPostModalDisplay(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [username])
+  }, [])
 
-  return (
-    <div className='profile'>
-      <Navbar />
-      <header className='profile__header'>
-        <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
-        <div className='profile__info'>
-          <div className='profile__frame'>
-            <img className='profile__picture' src={(user) ? user[0].Profile_Picture : ""} alt="Users profile icon"></img>
-          </div>
-          <div className='profile__info-text'>
-            <h3 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h3>
-            <h4 id='profile__occupation'>A student</h4>
-            <p className='profile__bio'>
-              This is a bio
-            </p>
-          </div>
-        </div>
-        <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>
-        {profileModalDisplay &&
-          <Modal toggle={handleSettingsToggle} >
-            <UpdateProfile />
-          </Modal>
-        }
-      </header>
-
-      <div className='profile__main'>
-        <div className='profile__main'>
-          <div className='profile__content'>
-            <div className='gallery__container'>
-              <Gallery />
+  if (user) {
+    return (
+      <div className='profile'>
+        <Navbar />
+        <header className='profile__header'>
+          <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
+          <div className='profile__info'>
+            <div className='profile__frame'>
+              <img className='profile__picture' src={(user) ? user[0].Profile_Picture : ""} alt="Users profile icon"></img>
+            </div>
+            <div className='profile__info-text'>
+              <h3 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h3>
+              <p className='profile__bio'>
+                This is a bio!
+              </p>
             </div>
           </div>
+          {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>}
+          {profileModalDisplay &&
+            <Modal toggle={handleSettingsToggle} >
+              <UpdateProfile />
+            </Modal>
+          }
+        </header>
+
+        <div className='profile__main'>
+          {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleModalToggle}>Upload Post!</button>}
+          {postModalDisplay &&
+            <Modal toggle={handleModalToggle} >
+              <UploadForm></UploadForm>
+            </Modal>
+          }
         </div>
-        <button onClick={handleModalToggle}>Upload Post!</button>
-        {postModalDisplay &&
-          <Modal toggle={handleModalToggle} >
-            <UploadForm></UploadForm>
-          </Modal>
-        }
+
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
-
-      <Button onClick={handleLogout}>Logout</Button>
-    </div>
-  );
+    );
+  } else {
+    return (
+      // Loading animation here soon :)
+      <h1>LOADING!!!!</h1>
+    )
+  }
 }
-
-
 
 export default Profile
