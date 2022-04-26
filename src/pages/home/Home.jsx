@@ -2,6 +2,7 @@ import './Home.css'
 
 import PostPreview from '../../components/PostPreview/PostPreview'
 import Navbar from '../../components/navbar/Navbar'
+import ScrollContainer from 'react-indiana-drag-scroll'
 import { useState, useEffect } from 'react';
 
 const axios = require('axios').default;
@@ -49,23 +50,23 @@ function Home() {
             <div className="main-body">
                 <div className="new-posts">
                     <h2 className='category'>Curated Posts</h2>
-                    <div className="post-display">
+                    <ScrollContainer className='post-display'>
                         {newPost.map((post) => {
                             return <PostPreview key={post.Post_ID} {...post} />
                         })}
-                    </div>
+                    </ScrollContainer>
                     <h2 className='category'>Top Posts</h2>
-                    <div className="post-display">
+                    <ScrollContainer className="post-display">
                         {newPost.map((post) => {
                             return <PostPreview key={post.Post_ID} {...post} />
                         })}
-                    </div>
+                    </ScrollContainer>
                     <h2 className='category'>New Posts</h2>
-                    <div className="post-display">
+                    <ScrollContainer className="post-display">
                         {newPost.map((post) => {
                             return <PostPreview key={post.Post_ID} {...post} />
                         })}
-                    </div>
+                    </ScrollContainer>
                 </div>
             </div>
 
