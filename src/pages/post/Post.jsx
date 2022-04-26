@@ -17,9 +17,7 @@ const Post = () => {
     const [post,setPost] = useState({})
     const [newPost,setNewPosts] = useState([]);
     const { postID } = useParams()
-    const navigate = useNavigate()
-    const [postIDState, setPostIDState] = useState(postID)
-
+    
     useEffect( async()=>{
         await ax_instance.get(`/get_post?postID=${postID}`)
         .then(Response =>{
@@ -31,13 +29,7 @@ const Post = () => {
             console.log(Response.data)
             setNewPosts(Response.data)
         })
-    },[])
-
-    useEffect(() => {
-        console.log("change")
-        navigate(`/post/${postID}`)
-        setPostIDState(postID)
-    }, [postID])
+    },[postID])
 
     return(
         <>
