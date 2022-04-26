@@ -63,6 +63,7 @@ const Profile = () => {
 
   
   if (user) {
+    console.log(user)
     return (
       <>
       {postModalDisplay &&
@@ -102,7 +103,7 @@ const Profile = () => {
           <div className='profile__main'>
             {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleModalToggle}>Upload Post!</button>}
             
-            <Gallery user_id={currentUser.id} />
+            <Gallery user_id={user[0].User_ID} />
           </div>
         </div>
       </div>
