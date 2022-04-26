@@ -5,6 +5,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
 import Searchbar from '../searchbar/Searchbar';
 import Data from './data.json'
+import { Button } from 'react-bootstrap';
+
 import './navbar.css'
 
 const Navbar = () => {
@@ -35,6 +37,8 @@ const Navbar = () => {
             to={`/profile/${currentUser.user_metadata.username}`}
             className={({ isActive }) => (isActive ? 'link active' : 'link')}
           >Profile</NavLink>
+        <Button onClick={handleLogout}>Logout</Button>
+
           {
             !currentUser &&
             <>

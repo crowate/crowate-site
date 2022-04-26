@@ -94,7 +94,6 @@ const Profile = () => {
           <Gallery user_id={currentUser.id} />
         </div>
 
-        <Button onClick={handleLogout}>Logout</Button>
       </div>
     );
   } else {
