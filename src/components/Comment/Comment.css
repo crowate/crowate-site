@@ -1,0 +1,28 @@
+.Comment-Body{
+    width: 50vw;
+    border: 1px black solid;
+    margin: 1% .5%;
+    border-radius: 10px;
+}
+.Comment-spacer{
+    padding: 1%;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1% 0%;
+}
+
+.cmnt-profile-pic{
+    aspect-ratio: 1;
+    height: 2.5vw;
+    border: black 1px solid;
+    border-radius: 50%;
+}
+
+h2{
+    margin: 10px;
+    font-style: italic;
+}

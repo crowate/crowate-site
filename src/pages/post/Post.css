@@ -17,7 +17,6 @@
 }
 .post-img{
     height: 35vmax;
-    padding: 1% 0%;
 }
 
 .r-feed{
@@ -30,6 +29,6 @@
     max-height: 95%;
 }
 
-.post-desc{
+.post-data{
     padding-left: 3vw;
 }

@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate, useParams } from 'react-router-dom'
 import PostPreview from '../../components/PostPreview/PostPreview'
-import logo from '../../assets/the_crow.svg'
 import { useState,useEffect } from 'react'
 import './Post.css'
 import { Navbar } from '../../components/'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { useAuth } from '../../contexts/AuthContext';
+import Comment from '../../components/Comment/Comment'
+import CreateComment from '../../components/Create Comment/CreateComment'
 const axios = require('axios').default;
 
 
@@ -15,8 +17,10 @@ const ax_instance = axios.create({
 });
 
 const Post = () => {
+    const { currentUser } = useAuth()
     const [post,setPost] = useState({})
     const [newPost,setNewPosts] = useState([]);
+    const [comments,setComments] = useState([])
     const { postID } = useParams()
     const navigate = useNavigate()
     const [postIDState, setPostIDState] = useState(postID)
@@ -31,6 +35,11 @@ const Post = () => {
         .then(Response =>{
             console.log(Response.data)
             setNewPosts(Response.data)
+        })
+        await ax_instance.get(`/get_comments?postID=${postID}`)
+        .then(Response =>{
+            console.log(Response.data)
+            setComments(Response.data)
         })
     },[])
 
@@ -52,6 +61,18 @@ const Post = () => {
                         <h2 className="post-name">{post.Name}</h2>
                         <h3 className="post-user">By {post.UserName}</h3>
                         <p className="description">{post.Description}</p>
+                    </div>
+                    <div className="comment-section">
+                        <CreateComment postID ={postID} userID={currentUser.id} userName={currentUser.user_metadata.username}/>
+                        <div className="commment-feed">
+                            {
+                                comments.map((body)=>{
+                                    return <Comment key={body.id} {...body}/>
+                                })
+                            }
+                        </div>
+
+                        
                     </div>
                 </div>
                 <div className="r-feed">
