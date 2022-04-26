@@ -32,7 +32,7 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? 'link active' : 'link')}
           >Home</NavLink>
           <NavLink
-            to='/profile'
+            to={`/profile/${currentUser.user_metadata.username}`}
             className={({ isActive }) => (isActive ? 'link active' : 'link')}
           >Profile</NavLink>
           {

@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import './gallery.css';
 const axios = require('axios').default;
 const ax_gallery = axios.create({
-    baseURL: 'http://localhost:8000'
+    baseURL: 'https://api.crowate.net'
 });
 
 const Gallery = ({user_id}) => {

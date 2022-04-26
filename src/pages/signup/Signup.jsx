@@ -46,7 +46,8 @@ const Signup = () => {
       let updates = {
         User_ID: user.id,
         Username: user.user_metadata.username,
-        Profile_Picture: "https://f004.backblazeb2.com/file/Crowate/User-Login-256.png"
+        Profile_Picture: "https://f004.backblazeb2.com/file/Crowate/User-Login-256.png",
+        Profile_Banner: "https://f004.backblazeb2.com/file/Crowate-Admin-Image/Default_Banner.png"
       }
 
       let { err } = await supabase.from('Profile Data').upsert(updates)

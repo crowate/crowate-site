@@ -26,7 +26,7 @@ const Login = () => {
     
     setLoading(true)
     const {user, session, err} = await login(emailRef.current.value, passRef.current.value)
-    navigate("/profile", {replace: true})
+    navigate("/home", {replace: true})
     console.log(session)
     setError(err)
     setCurrUser(user)

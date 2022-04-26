@@ -67,11 +67,10 @@ const Profile = () => {
         <header className='profile__header'>
           <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
           <div className='profile__info'>
-            <div className='profile__frame'>
+
               <img className='profile__picture' src={(user) ? user[0].Profile_Picture : ""} alt="Users profile icon"></img>
-            </div>
             <div className='profile__info-text'>
-              <h3 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h3>
+              <h1 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h1>
               <p className='profile__bio'>
                 This is a bio!
               </p>
