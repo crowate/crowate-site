@@ -17,6 +17,7 @@ const ax_instance = axios.create({
 });
 
 const Post = () => {
+    let navigate = useNavigate()
     const { currentUser } = useAuth()
     const [post,setPost] = useState({})
     const [newPost,setNewPosts] = useState([]);
@@ -45,7 +46,7 @@ const Post = () => {
     useEffect(() => {
         console.log("change")
         navigate(`/post/${postID}`)
-        setPostIDState(postID)
+        
     },[postID])
 
 

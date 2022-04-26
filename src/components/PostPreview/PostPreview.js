@@ -11,6 +11,7 @@ const PostPreview = (postData) =>{
 
     const handleClick = () => {
         navigate(`/post/${Post_ID}`)
+        window.location.reload(false)
 
     }
 
