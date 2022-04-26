@@ -17,9 +17,7 @@ const Profile = () => {
   const [user, setUser] = useState('')
   const [postModalDisplay, setPostModalDisplay] = useState(false)
   const [profileModalDisplay, setProfileModalDisplay] = useState(false)
-
-
-
+  const [isUsersPage, setIsUsersPage] = useState(false)
 
   async function handleLogout() {
     const { err } = await logout()
@@ -28,8 +26,6 @@ const Profile = () => {
 
     navigate("/login", { replace: true })
   }
-
-
 
   function handleModalToggle() {
     setPostModalDisplay(!postModalDisplay)
@@ -41,28 +37,37 @@ const Profile = () => {
   
   useEffect(() => {
     async function getUserData(usr) {
-    try {
-      const { data, error } =  await supabase
-      .from('Profile Data')
-      .select('*')
-      .eq('Username', usr)
-      
-      if (error) {
-        throw(error)
-      } 
-      
-      setUser(data)
-      console.log(data)
-      console.log(user)
+      try {
+        const { data, error } =  await supabase
+        .from('Profile Data')
+        .select('*')
+        .eq('Username', usr)
+        
+        if (error) {
+          throw(error)
+        } 
+        
+        setUser(data)
+        
 
-    } catch (e) {
-      console.log(e)
+      } catch (e) {
+        console.log(e)
+      }
+
     }
-
-  }
   
 
     getUserData(username)
+
+    console.log(user[0])
+
+    if (user) {
+      if (user[0].Username == user_metadata.username) {
+        setIsUsersPage(true)
+      } else {
+        setIsUsersPage(false)
+      }
+    }
     return () => {
       setPostModalDisplay(false)
     }
@@ -87,13 +92,19 @@ const Profile = () => {
               This is a bio
             </p>
           </div>
-        </div>
-        <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>
-        {profileModalDisplay &&
+        </div> 
+        {
+          isUsersPage && <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>
+        }
+          
+        { profileModalDisplay &&
           <Modal toggle={handleSettingsToggle} >
             <UpdateProfile />
           </Modal>
+        
+          
         }
+        
       </header>
       
       <div className='profile__main'>
