@@ -7,7 +7,7 @@ const axios = require('axios').default;
 
 
 const ax_instance = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'https://api.crowate.net/',
 });
 
 const postID = 60
