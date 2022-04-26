@@ -5,6 +5,7 @@ import logo from '../../assets/the_crow.svg'
 import { useState,useEffect } from 'react'
 import './Post.css'
 import { Navbar } from '../../components/'
+import ScrollContainer from 'react-indiana-drag-scroll'
 const axios = require('axios').default;
 
 
@@ -47,11 +48,11 @@ const Post = () => {
                 </div>
                 <div className="r-feed">
                     <h2>Recent Posts</h2>
-                    <div className="r-display">
+                    <ScrollContainer className="r-display" hideScrollbars={false}>
                         {newPost.map((post)=> {
                             return <PostPreview className="img-preview" key={post.Post_ID} {...post}/>
                         })}
-                    </div>
+                    </ScrollContainer>
                 </div>
             </div>
         </>

@@ -1,5 +1,6 @@
 .preview-window{
     min-width: 40vh;
+    max-width: 40vh;
     display: inline-flex;
     position: relative;
     text-align: center;
@@ -29,4 +30,8 @@
 .preview-window:hover > img {
     filter: brightness(50%);
 
+}
+
+.prv-btn{
+    border: 0 transparent solid;
 }
