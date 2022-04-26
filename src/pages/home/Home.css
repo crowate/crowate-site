@@ -1,19 +1,18 @@
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.home {}
+
+.header {
     background-color: black;
-    padding: 0% 0.5%;
 
 }
 
-.logo-header{
+.logo-header {
     height: 10vh;
     filter: invert(100%) sepia(100%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
 }
 
-.post-display{
+.post-display {
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     /* justify-content: flex-start; */
     gap: 10px;
@@ -21,7 +20,7 @@
     overflow: scroll;
 }
 
-.category{
+.category {
     margin: 0% 0px 0px 5vw;
-    
+
 }
