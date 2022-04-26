@@ -92,7 +92,7 @@ const Profile = () => {
               <UploadForm></UploadForm>
             </Modal>
           }
-          <Gallery user_id={currentUser.id} />
+          {/* <Gallery user_id={currentUser.id} /> */}
         </div>
 
         <Button onClick={handleLogout}>Logout</Button>
