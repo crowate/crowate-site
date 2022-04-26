@@ -1,7 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useNavigate, useParams } from 'react-router-dom'
 import PostPreview from '../../components/PostPreview/PostPreview'
 import logo from '../../assets/the_crow.svg'
 import { useState,useEffect } from 'react'
 import './Post.css'
+import { Navbar } from '../../components/'
 const axios = require('axios').default;
 
 
@@ -10,12 +13,12 @@ const ax_instance = axios.create({
     baseURL: 'https://api.crowate.net/',
 });
 
-const postID = 60
-
 const Post = () => {
     const [post,setPost] = useState({})
     const [newPost,setNewPosts] = useState([]);
-    
+    const { postID } = useParams()
+    const navigate = useNavigate()
+    const [postIDState, setPostIDState] = useState(postID)
 
     useEffect( async()=>{
         await ax_instance.get(`/get_post?postID=${postID}`)
@@ -29,14 +32,16 @@ const Post = () => {
             setNewPosts(Response.data)
         })
     },[])
+
+    useEffect(() => {
+        console.log("change")
+        navigate(`/post/${postID}`)
+        setPostIDState(postID)
+    }, [postID])
+
     return(
         <>
-            <div className="header">
-                <div className="Crowate">
-                    <img src={logo} alt="" className="logo-header" />
-                </div>
-            </div>
-            
+            <Navbar />
             <div className="post-body">
                 <div className="post-data">
                     <div className="img-container">
@@ -50,7 +55,7 @@ const Post = () => {
                 </div>
                 <div className="r-feed">
                     <h2>Recent Posts</h2>
-                    <div className=".r-display">
+                    <div className="r-display">
                         {newPost.map((post)=> {
                             return <PostPreview className="img-preview" key={post.Post_ID} {...post}/>
                         })}

@@ -13,13 +13,6 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [currUser, setCurrUser] = useState(null)
   const navigate = useNavigate()
-
-  async function getUsernameFromEmail(email) {
-    const { data, error } = await supabase
-      .from("Profile Data")
-      .select("Username")
-      .eq("")
-  }
   
   async function handleSubmit(e) {
     e.preventDefault()
