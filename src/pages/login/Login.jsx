@@ -2,6 +2,7 @@ import React, { useRef, useState, } from 'react'
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap'
 import { Link, useNavigate} from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import supabase from '../../supabase'
 
 
 const Login = () => {
@@ -12,6 +13,13 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [currUser, setCurrUser] = useState(null)
   const navigate = useNavigate()
+
+  async function getUsernameFromEmail(email) {
+    const { data, error } = await supabase
+      .from("Profile Data")
+      .select("Username")
+      .eq("")
+  }
   
   async function handleSubmit(e) {
     e.preventDefault()

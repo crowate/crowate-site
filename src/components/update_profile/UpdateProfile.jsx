@@ -6,7 +6,7 @@ import './UpdateProfile.css'
 const axios = require('axios').default;
 
 const ax_instance = axios.create({
-    baseURL: 'https://api.crowate.net/',
+    baseURL: 'https://api.crowate.net',
 });
 
 

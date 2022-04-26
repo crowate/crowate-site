@@ -1,4 +1,4 @@
-import { Navbar, Gallery, UploadForm, Modal, UpdateProfile } from "../../components"
+import { Navbar, UploadForm, Modal, UpdateProfile, Gallery } from "../../components"
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
