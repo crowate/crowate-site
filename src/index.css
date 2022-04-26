@@ -1,11 +1,15 @@
 :root {
   --bg-color-light: #FAFAFA;
   --bg-color-dark: #000;
-  --bg-color-grey: #7A7A7A;
+  --bg-color-grey: #3b3b3b;
   --bg-color-blue-800: #152238;
   --blue-500: #3E49CC;
   
-  background-color: var(--bg-color-light);
+    background-color: var(--bg-color-light);
+}
+
+button {
+  border: none;
 }
 
 body {

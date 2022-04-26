@@ -62,39 +62,43 @@ const Profile = () => {
 
   if (user) {
     return (
-      <div className='profile'>
+      <>
         <Navbar />
-        <header className='profile__header'>
-          <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
-          <div className='profile__info'>
-
-              <img className='profile__picture' src={(user) ? user[0].Profile_Picture : ""} alt="Users profile icon"></img>
-            <div className='profile__info-text'>
-              <h1 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h1>
-              <p className='profile__bio'>
-                This is a bio!
-              </p>
+        <div className='profile'>
+          
+          <header className='profile__header'>
+            <img className='profile__header-image' src={(user) ? user[0].Profile_Banner : ""} alt='user uploaded banner' />
+            <div className='profile__info'>
+            <div className="profile__picture_container">
+                <img className='profile__picture' src={(user) ? user[0].Profile_Picture : ""} alt="Users profile icon"></img>
             </div>
+                
+              <div className='profile__info-text'>
+                <h1 id='profile__name'>{(user) ? user[0].Username : "loading..."}</h1>
+                <p className='profile__bio'>
+                  This is a bio!
+                </p>
+              </div>
+            </div>
+            {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>}
+            {profileModalDisplay &&
+              <Modal toggle={handleSettingsToggle} >
+                <UpdateProfile />
+              </Modal>
+            }
+          </header>
+
+          <div className='profile__main'>
+            {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleModalToggle}>Upload Post!</button>}
+            {postModalDisplay &&
+              <Modal toggle={handleModalToggle} >
+                <UploadForm></UploadForm>
+              </Modal>
+            }
+            <Gallery user_id={currentUser.id} />
           </div>
-          {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>}
-          {profileModalDisplay &&
-            <Modal toggle={handleSettingsToggle} >
-              <UpdateProfile />
-            </Modal>
-          }
-        </header>
-
-        <div className='profile__main'>
-          {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleModalToggle}>Upload Post!</button>}
-          {postModalDisplay &&
-            <Modal toggle={handleModalToggle} >
-              <UploadForm></UploadForm>
-            </Modal>
-          }
-          <Gallery user_id={currentUser.id} />
         </div>
-
-      </div>
+      </>
     );
   } else {
     return (
