@@ -90,8 +90,8 @@ const UpdateProfile = () => {
                               className="form__button" 
                               type="button" 
                               onClick={() => {
-                                  bannerUpload(bannerFile)
-                                  profileImageUpload(profileImageFile)
+                                  if (bannerFile) { bannerUpload(bannerFile) }
+                                  if (profileImageFile) { profileImageUpload(profileImageFile) }
                                 }
                               }
                             >
