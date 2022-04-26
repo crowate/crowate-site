@@ -83,8 +83,14 @@ const UpdateProfile = () => {
                         <label className="form__item-label" htmlFor="profile-upload">Profile Image Upload </label>
                         <input type="file" accept="image/png, image/jpeg, image/jpg" onChange={e => setProfileImageFile(e.target.files[0])}/>
                     </div>
+                    <div className="form__item">
+                            <label className="form__item-label">Bio </label>
+                            <textarea 
+                                className="form__item-input"
+                                onChange={()=> console.log("change")}
+                            />
+                        </div>
                     <div className="all-file-text">
-                        
                         <div className="form__item align_center">
                             <button 
                               className="form__button" 

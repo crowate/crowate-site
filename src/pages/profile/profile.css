@@ -3,6 +3,11 @@
     height: max(100vh, 2px);
 }
 
+.profile-blur {
+    filter: blur(4px);
+    z-index: 1;
+}
+
 .profile__header-bar {
     display: flex;
     background-color: var(--bg-color-light);

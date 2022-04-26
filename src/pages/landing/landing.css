@@ -1,10 +1,60 @@
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 800px 800px;
+  }
+}
+
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 800px 800px;
+  }
+}
+
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 800px 800px;
+  }
+}
+
+@keyframes bg-scrolling {
+  0% {
+    background-position: 800px 800px;
+  }
+}
+
+/* Main styles */
+.landing__container {
+  /* img size is 50x50 */
+  background: url("../../assets/repeated-square.png") repeat 0 0;
+
+  -webkit-animation: bg-scrolling 20s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling 20s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling 20s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling 20s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.landing__background {
+  z-index: 1;
+}
+
 .landing__container {
   /* height: 65vh; */
+  height: 100vh;
   width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  z-index: 2;
 } 
 
 .landing__image_container {

@@ -53,6 +53,7 @@ const Profile = () => {
 
     }
 
+
     getUserData(username)
     return () => {
       setPostModalDisplay(false)
@@ -60,9 +61,23 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  
   if (user) {
     return (
       <>
+      {postModalDisplay &&
+        <Modal toggle={handleModalToggle} >
+          <UploadForm></UploadForm>
+        </Modal>
+      }
+      {profileModalDisplay &&
+        <Modal toggle={handleSettingsToggle} >
+          <UpdateProfile />
+        </Modal>
+      }
+      <div 
+        className={(postModalDisplay || profileModalDisplay) ?"profile-blur" : ""}
+      >
         <Navbar />
         <div className='profile'>
           
@@ -81,23 +96,16 @@ const Profile = () => {
               </div>
             </div>
             {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleSettingsToggle}>Update Profile</button>}
-            {profileModalDisplay &&
-              <Modal toggle={handleSettingsToggle} >
-                <UpdateProfile />
-              </Modal>
-            }
+            
           </header>
 
           <div className='profile__main'>
             {(user[0].Username === user_metadata.username) && <button className="form__button profile__button" onClick={handleModalToggle}>Upload Post!</button>}
-            {postModalDisplay &&
-              <Modal toggle={handleModalToggle} >
-                <UploadForm></UploadForm>
-              </Modal>
-            }
+            
             <Gallery user_id={currentUser.id} />
           </div>
         </div>
+      </div>
       </>
     );
   } else {
