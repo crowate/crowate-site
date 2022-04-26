@@ -1,4 +1,4 @@
-.home {}
+
 
 .header {
     background-color: black;
@@ -20,6 +20,7 @@
     overflow-y: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    cursor: grab;
 }
 
 .category {
