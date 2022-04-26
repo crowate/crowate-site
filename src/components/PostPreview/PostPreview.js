@@ -15,7 +15,7 @@ const PostPreview = (postData) =>{
     }
 
     return(
-        <button onClick={handleClick}>
+        <button onClick={handleClick} className='prv-btn'>
             <div className='preview-window'>
                 <img className='preview-img' src={Image_Link} alt={Alt_Text} />
                 

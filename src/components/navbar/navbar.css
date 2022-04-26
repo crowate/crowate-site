@@ -1,6 +1,5 @@
 .navbar2 {
-    width: 90vw;
-    max-width: 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
     color: var(--bg-color-light);
