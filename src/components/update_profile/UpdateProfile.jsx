@@ -13,7 +13,7 @@ const ax_instance = axios.create({
 const UpdateProfile = () => {
 
   const { currentUser } = useAuth();
-  const { id, user_metadata } = currentUser;
+  const { id } = currentUser;
 
   async function bannerUpload(file) {
     

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/the_crow.svg'
 import { useAuth } from '../../contexts/AuthContext';
-import { Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
+import { NavLink, NavBtnLink } from './NavbarElements';
 import Searchbar from '../searchbar/Searchbar';
 import Data from './data.json'
 import { Button } from 'react-bootstrap';
@@ -15,6 +15,9 @@ const Navbar = () => {
 
   async function handleLogout() {
     const { err } = await logout()
+    if (err) {
+      console.error(err)
+    }
     navigate('/login', { replace: true })
   }
 
@@ -34,7 +37,7 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? 'link active' : 'link')}
           >Home</NavLink>
           <NavLink
-            to={`/profile/${currentUser.user_metadata.username}`}
+            to={(currentUser) ? `/profile/${currentUser.user_metadata.username}` : `/login`}
             className={({ isActive }) => (isActive ? 'link active' : 'link')}
           >Profile</NavLink>
         <Button onClick={handleLogout}>Logout</Button>
